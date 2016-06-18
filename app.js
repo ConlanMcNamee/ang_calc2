@@ -12,7 +12,7 @@ app.controller('CalcController', ['$http', '$scope', function($http, $scope) {
 
   $scope.run = function() {
     $http({
-      url: 'http://localhost:3000/calculate',
+      url: 'https://angcalc.herokuapp.com/calculate',
       method: "GET",
       params: {
         operands: {
