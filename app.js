@@ -9,10 +9,10 @@ app.controller('CalcController', ['$http', '$scope', function($http, $scope) {
   $scope.a = 15;
   $scope.b = 2;
   $scope.operation = 'subtract'; // Default for <select> element.
-
+  var url = document.URL;
   $scope.run = function() {
     $http({
-      url: 'https://angcalc.herokuapp.com/calculate',
+      url: url + '/calculate',
       method: "GET",
       params: {
         operands: {
