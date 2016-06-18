@@ -12,7 +12,7 @@ app.controller('CalcController', ['$http', '$scope', function($http, $scope) {
   var url = document.URL;
   $scope.run = function() {
     $http({
-      url: url + '/calculate',
+      url: url + 'calculate',
       method: "GET",
       params: {
         operands: {
