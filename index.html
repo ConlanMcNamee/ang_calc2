@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="calc">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Calculator</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/style.css" charset="utf-8"> -->
+  </head>
+  <body>
+
+    <div ng-controller="CalcController as calc">
+      <label for="calcSelect">Select which operation you would like to use! </label><br>
+      <select ng-model="operation" name="calcSelect">
+        <option value="add">Add</option>
+        <option value="subtract" ng-selected="true">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
+      <form>
+        Number 1: <input type="number" ng-model="a" required />
+        Number 2: <input type="number" ng-model="b" required />
+      </form>
+      <button type="submit" name="Submit" ng-click="run()">Submit</button>
+      <p data-ng-cloak>
+        Result: {{answer}}
+      </p>
+    </div>
+    <!-- <script type="text/javascript" src="../node_modules/angular/angular.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+</html>
