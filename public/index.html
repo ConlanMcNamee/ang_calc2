@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="calc">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Calculator</title>
+    <link rel="stylesheet" type="text/css" href="main.css" charset="utf-8">
+  </head>
+  <body>
+
+    <div ng-controller="CalcController as calc">
+      <label for="calcSelect">Select which operation you would like to use! </label><br>
+      <select ng-model="operation" name="calcSelect">
+        <option value="add">Add</option>
+        <option value="subtract" ng-selected="true">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
+      <form>
+        Number 1: <input type="number" ng-model="a" required />
+        Number 2: <input type="number" ng-model="b" required />
+      </form>
+      <button type="submit" name="Submit" ng-click="run()">=</button>
+      <p data-ng-cloak>
+        Result: {{answer}}
+      </p>
+
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('1')"> 1 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('2')"> 2 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('3')"> 3 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('4')"> 4 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('5')"> 5 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('6')"> 6 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('7')"> 7 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('8')"> 8 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('9')"> 9 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperand('0')"> 9 </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperator('add')"> + </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperator('subtract')"> - </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperator('multiply')"> x </button>
+      <button class ="calcButton" type="button" name="button" ng-click="setOperator('divide')"> % </button>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+</html>
