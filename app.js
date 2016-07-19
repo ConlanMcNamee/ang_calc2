@@ -1,13 +1,10 @@
 var app = angular.module('calc', [])
 
-// .config(['$httpProvider', function($httpProvider) {
-//   $httpProvider.defaults.withCredentials = true;
-// }]);
 
 app.controller('CalcController', ['$http', '$scope', function($http, $scope) {
-  //changed to this. instead of $scope when testing will try both though
-  $scope.a = 15;
-  $scope.b = 2;
+  
+  $scope.a;
+  $scope.b;
   $scope.operation = 'subtract'; // Default for <select> element.
   var url = document.URL;
   $scope.run = function() {
@@ -27,6 +24,38 @@ app.controller('CalcController', ['$http', '$scope', function($http, $scope) {
       $scope.answer = response.data.answer;
     })
   };
+
+  $scope.switch = true;
+  $scope.operand;
+  $scope.setOperand = function(numString) {
+    if(!$scope.operand) {
+      $scope.operand = numString;
+
+      if($scope.switch) {
+        $scope.a = Number($scope.operand);
+      } else {
+        $scope.b = Number($scope.operand);
+      }
+
+      console.log($scope.operand);
+    } else {
+      $scope.operand = $scope.operand + numString;
+
+      if($scope.switch) {
+        $scope.a = Number($scope.operand);
+      } else {
+        $scope.b = Number($scope.operand);
+      }
+      console.log($scope.operand);
+    }
+  }
+  $scope.operator = 'add';
+  $scope.setOperator = function(str) {
+    $scope.switch = !$scope.switch;
+    $scope.operand = 0;
+    $scope.operation = str;
+    console.log($scope.operation);
+  }
 
 
 }]);
