@@ -1,13 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res) {
-  res.sendfile('./index.html')
-})
-
-app.get('/app.js', function(req,res) {
-  res.sendfile('./app.js')
-})
+app.use('/', express.static('public'));
 
 
 app.get('/calculate', function(req, res) {
